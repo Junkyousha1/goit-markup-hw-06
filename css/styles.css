@@ -10,6 +10,7 @@
     --our-team-background-color: #F5F4FA;
     --portfolio-background-color: #EEEEEE;
     --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --icon-normal-size: 18px;
 }
 
 body {
@@ -241,6 +242,16 @@ img {
     flex-direction: column;
     gap: 10px;
 }
+.form-label{
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 1);
+}
 .input-container{
     display: flex;
     flex-direction: column;
@@ -248,37 +259,136 @@ img {
     position: relative;
 }
 .input-container svg{
-    width: 18px;
-    height: 18px;
+    width: var(--icon-normal-size);
+    height: var(--icon-normal-size);
     position: absolute;
     top: 25%;
     left: 12px;
     outline: none;
 }
-input, textarea{
+
+.text-field{
     height: 40px;
+    padding: 11px 12px 11px 42px;
+}
+textarea{
+    height: 120px;
+    padding: 12px 16px;
+}
+textarea::placeholder{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.text-field, textarea{
+    
     border-radius: 4px;
     border: 1px solid rgba(33, 33, 33, 0.2);
-    padding: 11px 12px 11px 42px;
+    
     outline: none;
     transition: border var(--transition);
 }
-input svg{
+.text-field svg{
     transition: fill var(--transition);
 }
-input:hover,
+.text-field:hover,
 textarea:hover{
     cursor: pointer;
 }
-input:focus,
+.text-field:focus,
 textarea:focus{
     border: 1px solid var(--link-hover-color);;
     outline: none;
 }
-input:focus+svg{
+.text-field:focus+svg{
     fill: var(--link-hover-color);
 }
 
+.terms-and-conditions-container{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 30px;
+}
+.terms-and-conditions-label{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.terms-and-conditions-label svg{
+    width: 16px;
+    height: 15px;
+    position: absolute;
+    left: 0;
+    top: 25%;
+    visibility: hidden;
+}
+.input-checkbox{
+    visibility: hidden;
+}
+.icon-checkbox{
+    visibility: hidden;
+}
+.input-checkbox:not(:checked) +label > .unchecked{
+    visibility: visible;
+}
+.input-checkbox:checked +label > .checked {
+    visibility: visible;
+}
+
+
+.terms-and-conditions-label span{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: rgba(117, 117, 117, 1);
+}
+.terms-and-conditions-label a{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    color: rgba(33, 150, 243, 1);
+}
+.comments-container{
+    margin-bottom: 20px;
+}
+
+.form-button{
+    display: flex;
+    align-self: center;
+    padding: 10px 80px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgba(33, 150, 243, 1);
+    color: rgba(255, 255, 255, 1);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+.form-button:hover{
+    background-color: rgba(24, 140, 232, 1);
+}
 
 @keyframes modal-open{
     0%{
@@ -303,12 +413,17 @@ input:focus+svg{
     width: 30px;
     height: 30px;
     transition: var(--transition);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.close-btn svg{
+    fill: rgba(0, 0, 0, 1);
+    width: var(--icon-normal-size);
+    height: var(--icon-normal-size);
 }
 
-.close-btn:hover, :focus{
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 1);
-    color: var(--link-hover-color);
+.close-btn:hover svg{
+    fill: var(--link-hover-color);
 }
 
 
