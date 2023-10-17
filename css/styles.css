@@ -415,6 +415,7 @@ textarea:focus{
     top: 8px;
     right: 8px;
     background-color: rgba(255, 255, 255, 1);
+    transition: var(--transition);
 }
 .close-btn svg{
     fill: rgba(0, 0, 0, 1);
